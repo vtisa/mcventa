@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import modelo.Producto;
+
 
 public class ProductoDAO {
     private Connection conexion;
@@ -15,11 +17,10 @@ public class ProductoDAO {
         this.conexion = conexion;
     }
 
-
     public void insertarProducto(Producto producto) {
         String sql = "INSERT INTO producto (codigo, nombre, precio, stock) VALUES (?, ?, ?, ?)";
         try (PreparedStatement statement = conexion.prepareStatement(sql)) {
-            statement.setInt(1, producto.getCodigo());
+            statement.setString(1, producto.getCodigo());
             statement.setString(2, producto.getNombre());
             statement.setDouble(3, producto.getPrecio());
             statement.setInt(4, producto.getStock());
@@ -37,7 +38,7 @@ public class ProductoDAO {
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 Producto producto = new Producto(
-                    resultSet.getInt("codigo"),
+                    resultSet.getString("codigo"),
                     resultSet.getString("nombre"),
                     resultSet.getDouble("precio"),
                     resultSet.getInt("stock")
@@ -45,7 +46,7 @@ public class ProductoDAO {
                 listaProductos.add(producto);
             }
         } catch (SQLException e) {
-            // Manejo de excepciones
+        
         }
         return listaProductos;
     }
@@ -59,7 +60,7 @@ public class ProductoDAO {
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     Producto producto = new Producto(
-                        resultSet.getInt("codigo"),
+                        resultSet.getString("codigo"),
                         resultSet.getString("nombre"),
                         resultSet.getDouble("precio"),
                         resultSet.getInt("stock")
@@ -73,4 +74,3 @@ public class ProductoDAO {
         return listaProductos;
     }
 }
-

@@ -14,7 +14,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 @WebServlet(name = "BuscarServlet", urlPatterns = {"/BuscarServlet"})
-public class BuscarProductoServlet extends HttpServlet {
+public class BuscarServlet extends HttpServlet {
 
     private String jdbcURL = "jdbc:mysql://localhost:3306/ventas";
     private String jdbcUsername = "root";
@@ -43,10 +43,10 @@ public class BuscarProductoServlet extends HttpServlet {
             List<Producto> productos = productoService.buscarProductosPorNombre(nombre);
             
             // Puedes almacenar la lista de productos encontrados en el alcance de solicitud
-            request.setAttribute("encontrarproduc", productos);
+            request.setAttribute("productosEncontrados", productos);
             
             // Redirigir a la página JSP que muestra los productos encontrados
-            request.getRequestDispatcher("encontrarproduc.jsp").forward(request, response);
+            request.getRequestDispatcher("productosEncontrados.jsp").forward(request, response);
         } catch (SQLException e) {
             // Manejar errores de base de datos
             e.printStackTrace(); // Puedes manejar esto mejor en tu aplicación

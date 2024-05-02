@@ -5,16 +5,16 @@
          version="4.0">
   
     <servlet>
-        <servlet-name>MostrarProductosServlet</servlet-name>
-        <servlet-class>controlador.MostrarProductosServlet</servlet-class>
+        <servlet-name>MostrarServlet</servlet-name>
+        <servlet-class>controlador.MostrarServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>MostrarProductosServlet</servlet-name>
-        <url-pattern>/MostrarProductosServlet</url-pattern>
+        <servlet-name>MostrarServlet</servlet-name>
+        <url-pattern>/MostrarServlet</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>
-        <welcome-file>MostrarProductosServlet</welcome-file>
+        <welcome-file>MostrarServlet</welcome-file>
     </welcome-file-list>
 </web-app> 

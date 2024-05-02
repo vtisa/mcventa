@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/mcventa">
-  <!-- Configuración de la fuente de datos (DataSource) para MySQL -->
-  <Resource 
-      auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" maxIdle="30" 
-      maxTotal="100" maxWaitMillis="10000" name="jdbc/MyDB" password=""
-      type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/ventas" 
-      username="root"/>
+   
 </Context>
